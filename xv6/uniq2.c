@@ -2,7 +2,6 @@
 #include "stat.h"
 #include "user.h"
 
-char buf[512];
 char* result[512];
 int Index[512];
 char* strings[512];
@@ -10,6 +9,13 @@ char* strings[512];
 void
 uniq(int fd, char *name)
 {
+  struct stat filestat;
+  int filesize;
+  fstat(fd,&filestat);
+  filesize = filestat.size;
+
+  char buf[512+filesize];
+
   int count = 1;
   int i, n, j;
   int index_num = 1;
@@ -89,6 +95,12 @@ uniq(int fd, char *name)
 void
 uniq_c(int fd, char *name)
 {
+  struct stat filestat;
+  int filesize;
+  fstat(fd,&filestat);
+  filesize = filestat.size;
+
+  char buf[512+filesize];
   int count = 1;
   int i, n, j;
   int index_num = 1;
@@ -158,6 +170,12 @@ uniq_c(int fd, char *name)
 void
 uniq_d(int fd, char *name)
 {
+  struct stat filestat;
+  int filesize;
+  fstat(fd,&filestat);
+  filesize = filestat.size;
+
+  char buf[512+filesize];
   int count = 1;
   int i, n, j;
   int index_num = 1;
@@ -228,6 +246,12 @@ uniq_d(int fd, char *name)
 void
 uniq_i(int fd, char *name)
 {
+  struct stat filestat;
+  int filesize;
+  fstat(fd,&filestat);
+  filesize = filestat.size;
+
+  char buf[512+filesize];
   int count = 1;
   int i, n, j;
   int index_num = 1;
@@ -303,6 +327,12 @@ uniq_i(int fd, char *name)
 void
 uniq_c_i(int fd, char *name)
 {
+  struct stat filestat;
+  int filesize;
+  fstat(fd,&filestat);
+  filesize = filestat.size;
+
+  char buf[512+filesize];
   int count = 1;
   int i, n, j;
   int index_num = 1;
